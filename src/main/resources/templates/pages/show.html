@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Siku</title>
+</head>
+<body>
+    <table style="border: 1px;">
+        <tr>
+            <td>Id</td>
+            <td th:text="${idk.getId()}"></td>
+        </tr>
+        <tr>
+            <td>Kode</td>
+            <td th:text="${idk.getKode()}"></td>
+        </tr>
+        <tr>
+            <td>Uraian</td>
+            <td th:text="${idk.getUraian()}"></td>
+        </tr>
+        <tr>
+            <td>Level</td>
+            <td th:text="${idk.getLevel()}"></td>
+        </tr>
+    </table>
+</body>
+</html>

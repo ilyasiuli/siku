@@ -25,8 +25,43 @@ public class Indikator{
                 mappedBy = "indikator")
     List<Penilaian> penilaianList;
 
-    public String getUraian(){
-        return uraian;
+    public long getId() {
+        return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getKode() {
+        return kode;
+    }
+
+    public void setKode(String kode) {
+        this.kode = kode;
+    }
+
+    public String getUraian() {
+        return "Uraiannya adalah "+uraian;
+    }
+
+    public void setUraian(String uraian) {
+        this.uraian = uraian;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public List<Penilaian> getPenilaianList() {
+        return penilaianList;
+    }
+
+    public void setPenilaianList(List<Penilaian> penilaianList) {
+        this.penilaianList = penilaianList;
+    }
 }
