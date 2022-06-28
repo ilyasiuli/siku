@@ -20,8 +20,6 @@ public class MainController {
 
     @GetMapping("")
     public String home(Model model){
-        List<Indikator> indikatorList = indikatorServices.getAll();
-        model.addAttribute("indikatorList",indikatorList);
         return "pages/home";
     }
 

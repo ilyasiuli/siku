@@ -16,4 +16,8 @@ public interface IndikatorServices {
     Indikator update(Indikator indikator);
 
     boolean delete(Indikator indikator);
+
+    List<Indikator> getActive();
+
+    List<Indikator> getInactive();
 }

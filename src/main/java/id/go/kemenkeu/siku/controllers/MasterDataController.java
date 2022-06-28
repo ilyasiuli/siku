@@ -8,9 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.naming.Binding;
 import javax.validation.Valid;
-import java.net.http.HttpRequest;
 import java.util.List;
 
 @Controller
@@ -21,7 +19,7 @@ public class MasterDataController {
 
     @GetMapping("")
     public String index(Model model){
-        List<Indikator> indikatorList = indikatorServices.getAll();
+        List<Indikator> indikatorList = indikatorServices.getActive();
         model.addAttribute("indikatorList",indikatorList);
         return "pages/indikator/indikator-index";
     }

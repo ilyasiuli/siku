@@ -22,6 +22,8 @@ public class Indikator{
 
     private int level;
 
+    private boolean deleted;
+
     @OneToMany(cascade = CascadeType.ALL,
                 fetch = FetchType.LAZY,
                 mappedBy = "indikator")
@@ -65,5 +67,13 @@ public class Indikator{
 
     public void setPenilaianList(List<Penilaian> penilaianList) {
         this.penilaianList = penilaianList;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
     }
 }

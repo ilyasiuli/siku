@@ -40,6 +40,7 @@ public class IndikatorServicesImpl implements IndikatorServices{
 
     @Override
     public void create(Indikator indikator) {
+        indikator.setDeleted(false);
         indikatorRepository.save(indikator);
     }
 
@@ -56,8 +57,19 @@ public class IndikatorServicesImpl implements IndikatorServices{
         //Pengecekan apakah user yang login berhak menghapus indikator tersebut.
         //return true, jika berhasil delete
         //return false, jika gagal delete
+        indikator.setDeleted(true);
 
-        indikatorRepository.delete(indikator);
+        indikatorRepository.save(indikator);
         return true;
+    }
+
+    @Override
+    public List<Indikator> getActive() {
+        return indikatorRepository.findByDeleted(false);
+    }
+
+    @Override
+    public List<Indikator> getInactive() {
+        return indikatorRepository.findByDeleted(true);
     }
 }

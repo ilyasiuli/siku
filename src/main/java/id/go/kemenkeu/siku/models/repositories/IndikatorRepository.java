@@ -33,4 +33,6 @@ public interface IndikatorRepository extends JpaRepository<Indikator, Long> {
 
     List<Indikator> findByKodeOrderById(String kode);
 
+    List<Indikator> findByDeleted(boolean deleted);
+
 }
