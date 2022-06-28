@@ -3,6 +3,7 @@ package id.go.kemenkeu.siku.controllers;
 import id.go.kemenkeu.siku.models.Indikator;
 import id.go.kemenkeu.siku.services.IndikatorServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +19,7 @@ public class MasterDataController {
     IndikatorServices indikatorServices;
 
     @GetMapping("")
+    @Secured({"ROLE_MENU_INDIKATOR"})
     public String index(Model model){
         List<Indikator> indikatorList = indikatorServices.getActive();
         model.addAttribute("indikatorList",indikatorList);
@@ -25,6 +27,7 @@ public class MasterDataController {
     }
 
     @GetMapping("/{id}")
+    @Secured({"ROLE_MENU_INDIKATOR"})
     public String show(@PathVariable long id, Model model){
         Indikator indikator = indikatorServices.getById(id);
         model.addAttribute("idk", indikator);
@@ -32,6 +35,7 @@ public class MasterDataController {
     }
 
     @GetMapping("/add")
+    @Secured({"ROLE_CRUD_INDIKATOR"})
     public String add(Model model){
         Indikator indikator = new Indikator();
         model.addAttribute("indikator",indikator);
@@ -39,6 +43,7 @@ public class MasterDataController {
     }
 
     @PostMapping("/create")
+    @Secured({"ROLE_CRUD_INDIKATOR"})
     public String create(@Valid @ModelAttribute(name = "indikator") Indikator indikator,
                                   BindingResult result){
         if(result.hasErrors()){
@@ -49,6 +54,7 @@ public class MasterDataController {
     }
 
     @GetMapping("/edit/{id}")
+    @Secured({"ROLE_CRUD_INDIKATOR"})
     public String edit(Model model, @PathVariable long id){
         Indikator indikator = indikatorServices.getById(id);
         if(!model.containsAttribute("data")){
@@ -58,6 +64,7 @@ public class MasterDataController {
     }
 
     @PostMapping("/update")
+    @Secured({"ROLE_CRUD_INDIKATOR"})
     public String update(@Valid @ModelAttribute(name = "data") Indikator indikator,
                                   BindingResult result){
         if(result.hasErrors()){
@@ -68,6 +75,7 @@ public class MasterDataController {
     }
 
     @GetMapping("/delete/{id}")
+    @Secured({"ROLE_CRUD_INDIKATOR"})
     public String delete(Model model, @PathVariable long id){
         Indikator indikator = indikatorServices.getById(id);
         indikatorServices.delete(indikator);
