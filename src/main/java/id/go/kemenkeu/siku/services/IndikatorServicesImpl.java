@@ -4,7 +4,6 @@ import id.go.kemenkeu.siku.models.Indikator;
 import id.go.kemenkeu.siku.models.repositories.IndikatorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,5 +31,15 @@ public class IndikatorServicesImpl implements IndikatorServices{
         }else{
             throw new RuntimeException();
         }
+    }
+
+    @Override
+    public List<Indikator> getAll() {
+        return indikatorRepository.findAll();
+    }
+
+    @Override
+    public void create(Indikator indikator) {
+        indikatorRepository.save(indikator);
     }
 }

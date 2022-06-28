@@ -42,7 +42,7 @@ public class Indikator{
     }
 
     public String getUraian() {
-        return "Uraiannya adalah "+uraian;
+        return uraian;
     }
 
     public void setUraian(String uraian) {

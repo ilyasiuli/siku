@@ -1,7 +1,5 @@
 package id.go.kemenkeu.siku.models;
 
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
 
 @Entity

@@ -8,4 +8,8 @@ public interface IndikatorServices {
     Indikator getById(long id);
 
     List<Indikator> get10or20(int jumlah);
+
+    List<Indikator> getAll();
+
+    void create(Indikator indikator);
 }
