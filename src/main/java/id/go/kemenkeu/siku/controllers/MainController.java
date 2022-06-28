@@ -18,31 +18,12 @@ public class MainController {
     @Autowired
     IndikatorServices indikatorServices;
 
-
-    @GetMapping("/siku/home")
+    @GetMapping("")
     public String home(Model model){
         List<Indikator> indikatorList = indikatorServices.getAll();
         model.addAttribute("indikatorList",indikatorList);
         return "pages/home";
     }
 
-    @GetMapping("/siku/indikator/{id}")
-    public String show(@PathVariable long id, Model model){
-        Indikator indikator = indikatorServices.getById(id);
-        model.addAttribute("idk", indikator);
-        return "pages/show";
-    }
 
-    @GetMapping("/siku/add")
-    public String add(Model model){
-        Indikator indikator = new Indikator();
-        model.addAttribute("indikator",indikator);
-        return "pages/add";
-    }
-
-    @PostMapping("/siku/indikator/create")
-    public String createIndikator(@ModelAttribute(name = "indikator") Indikator indikator){
-        indikatorServices.create(indikator);
-        return "redirect:/siku/home";
-    }
 }
