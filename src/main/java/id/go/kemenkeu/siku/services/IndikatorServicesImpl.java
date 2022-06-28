@@ -42,4 +42,22 @@ public class IndikatorServicesImpl implements IndikatorServices{
     public void create(Indikator indikator) {
         indikatorRepository.save(indikator);
     }
+
+    @Override
+    public Indikator update(Indikator indikator) {
+        //Perlu dilakukan pengecekan siapa yang berhak mengupdate indikator tersebut.
+        //Misal: PPK1 tidak berhak mengedit paket id 10
+
+        return indikatorRepository.save(indikator);
+    }
+
+    @Override
+    public boolean delete(Indikator indikator) {
+        //Pengecekan apakah user yang login berhak menghapus indikator tersebut.
+        //return true, jika berhasil delete
+        //return false, jika gagal delete
+
+        indikatorRepository.delete(indikator);
+        return true;
+    }
 }

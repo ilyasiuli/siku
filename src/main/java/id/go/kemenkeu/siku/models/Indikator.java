@@ -3,6 +3,7 @@ package id.go.kemenkeu.siku.models;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
@@ -14,6 +15,7 @@ public class Indikator{
     private long id;
 
     @NotNull
+    @NotBlank(message = "Kode wajib diisi")
     private String kode;
 
     private String uraian;

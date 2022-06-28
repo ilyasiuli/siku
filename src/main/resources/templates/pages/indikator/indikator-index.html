@@ -40,7 +40,11 @@
                                     <td th:text="${idk.getKode()}"></td>
                                     <td th:text="${idk.getUraian()}"></td>
                                     <td th:text="${idk.getLevel()}"></td>
-                                    <td></td>
+                                    <td>
+                                        <a th:href="@{'/indikator/'+${idk.getId()}}"><i class="fas fa-eye text-success"></i> </a>
+                                        <a th:href="@{'/indikator/edit/'+${idk.getId()}}"><i class="fas fa-pencil-alt text-primary"></i> </a>
+                                        <a th:href="@{'/indikator/delete/'+${idk.getId()}}"><i class="fas fa-trash text-danger"></i> </a>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>

@@ -12,4 +12,8 @@ public interface IndikatorServices {
     List<Indikator> getAll();
 
     void create(Indikator indikator);
+
+    Indikator update(Indikator indikator);
+
+    boolean delete(Indikator indikator);
 }
